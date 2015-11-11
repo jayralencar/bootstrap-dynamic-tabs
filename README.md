@@ -22,7 +22,9 @@ Para adicionar uma nova aba basta usar o metodo <code>addTab(options)</code>, ve
   var tabs = $('#tabs').bootstrapDynamicTabs();
   tabs.addTab({
     title: "Home",
-    text: "Seja bem-vindo"
+    text: "Seja bem-vindo",
+    icon: 'fa fa-home',
+    closable: false
   });
   </code>
 </pre>
