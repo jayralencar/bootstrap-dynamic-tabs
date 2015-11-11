@@ -87,3 +87,9 @@ As opções das abas são usadas para definir atributos como título, corpo, etc
     </tr>
   </tbody>
 </table>
+<h1>Sortable</h1>
+Além de tudo, você ainda pode mudar a posição das abas ao arrastar, por isso usamos jQuery UI.
+<h1>Quer mais</h1>
+Visite:
+<a href="//jayralencar.com.br">Meu site</a>
+<a href="//clubedosgeeks.com.br">Clube dos Geeks</a>
