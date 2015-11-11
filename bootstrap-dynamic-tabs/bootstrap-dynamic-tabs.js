@@ -6,7 +6,7 @@
 		return orig.apply(this, arguments);
 	}
 	var tabs = [];
-	$.fn.TAB = function(options) {
+	$.fn.bootstrapDynamicTabs = function(options) {
 		var settings = $.extend({
             // These are the defaults.K
         }, options );
@@ -77,7 +77,7 @@
 			});
 
 			if(settings.icon){
-				ancora.append($('<i/>').addClass('fa').addClass(settings.icon)).append(' ')
+				ancora.append($('<i/>').addClass(settings.icon)).append(' ')
 			}
 			if(settings.closable){
 				ancora.append(btn_close)
@@ -169,10 +169,10 @@
 				pagina.html(settings.html)
 			}
 
-			if(settings.ajaxFile){
+			if(settings.ajaxUrl){
 				$.ajax({
 		            mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
-		            url: settings.ajaxFile,
+		            url: settings.ajaxUrl,
 		            type: 'GET',
 		            success: function(data) {
 		            	pagina.html(data)

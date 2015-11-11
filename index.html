@@ -4,15 +4,15 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
+	<link rel="stylesheet" href="bootstrap-dynamic-tabs/bootstrap-dynamic-tabs.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<button id="btnHtml" class="btn btn-info">Nova aba HTML</button>
-				<button id="btnAjax" class="btn btn-primary">Nova aba AJAX</button>
-				<button id="btnIon" class="btn btn-danger">Nova aba com ícone <i class="fa fa-user"></i></button>
+				<button id="btnHtml" class="btn btn-info">Aba com HTML</button>
+				<button id="btnAjax" class="btn btn-primary">Aba com AJAX</button>
+				<button id="btnIon" class="btn btn-danger">Aba com ícone <i class="fa fa-user"></i></button>
 			</div>
 		</div>
 		<div id="tabs">
@@ -25,16 +25,16 @@
 <script type="text/javascript" src="bootstrap-dynamic-tabs/bootstrap-dynamic-tabs.js"></script>
 <script type="text/javascript">
 
-var tabs = $('#tabs').TAB().addTab({
+var tabs = $('#tabs').bootstrapDynamicTabs().addTab({
 	title:'Home',
-	text:'Bem vindo',
+	text:'Plugin jQuery para manipular tabs do bootstrap de forma dinâmica, excelente para aplicações multitelas na WEB ou em runtimes como node-webkit ou electron.',
 	closable: false
 });
 
 $('#btnHtml').click(function(){
 	tabs.addTab({
 		title: 'Aba com HTML',
-		html: '<h2>Teste 2</h2>'
+		html: '<h2>Desenvolvido por <a href="//jayralencar.com.br">Jayr Alencar</a></h2>'
 	})
 });
 
@@ -42,7 +42,7 @@ $('#btnAjax').click(function(){
 	tabs.addTab({
 		title: 'Carregando via Ajax',
 		id: 'ajax',
-		ajaxFile: 'ajax/file.html',
+		ajaxUrl: 'ajax/file.html',
 		loadScripts: 'js/load.js',
 		loadStyles: ['css/test.css','css/test2.css']
 	});
@@ -51,17 +51,11 @@ $('#btnAjax').click(function(){
 $('#btnIon').click(function(){
 	tabs.addTab({
 		title: 'Aba com ícone',
-		html: '<h2>Aba com ícone</h2>',
-		icon: 'fa-user'
+		html: '<h2>Aba com ícone</h2>Um icone Font Awesome, exemplo: fa fa-user. O icone será mostrado na aba. Você também pode usar os glyphicon do Bootstrap </code>',
+		icon: 'fa fa-user'
 	})
 })
 
 
 </script>
-<style type="text/css">
-.nav-tabs > li .close {
-	margin: -2px 0 0 10px;
-	font-size: 18px;
-}
-</style>
 </html>
