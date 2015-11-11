@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Bootstrap TABS</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<button id="btnHtml" class="btn btn-info">Nova aba HTML</button>
+				<button id="btnAjax" class="btn btn-primary">Nova aba AJAX</button>
+				<button id="btnIon" class="btn btn-danger">Nova aba com ícone <i class="fa fa-user"></i></button>
+			</div>
+		</div>
+		<div id="tabs">
+		</div>
+	</div>
+</body>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="bootstrap-tab/bootstrap-tab.js"></script>
+<script type="text/javascript">
+
+var tabs = $('#tabs').TAB().addTab({title:'Home',text:'Bem vindo'});
+
+$('#btnHtml').click(function(){
+	tabs.addTab({
+		title: 'Aba com HTML',
+		html: '<h2>Teste 2</h2>'
+	})
+});
+
+$('#btnAjax').click(function(){
+	tabs.addTab({
+		title: 'Carregando via Ajax',
+		id: 'ajax',
+		ajaxFile: 'ajax/file.html',
+		loadScripts: 'js/load.js',
+		loadStyles: ['css/test.css','css/test2.css']
+	});
+});
+
+$('#btnIon').click(function(){
+	tabs.addTab({
+		title: 'Aba com ícone',
+		html: '<h2>Aba com ícone</h2>',
+		icon: 'fa-user'
+	})
+})
+
+
+</script>
+<style type="text/css">
+.nav-tabs > li .close {
+	margin: -2px 0 0 10px;
+	font-size: 18px;
+}
+</style>
+</html>
