@@ -19,13 +19,17 @@
 		</div>
 	</div>
 </body>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="bootstrap-tab/bootstrap-tab.js"></script>
+<script type="text/javascript" src="bootstrap-dynamic-tabs/bootstrap-dynamic-tabs.js"></script>
 <script type="text/javascript">
 
-var tabs = $('#tabs').TAB().addTab({title:'Home',text:'Bem vindo'});
+var tabs = $('#tabs').TAB().addTab({
+	title:'Home',
+	text:'Bem vindo',
+	closable: false
+});
 
 $('#btnHtml').click(function(){
 	tabs.addTab({
