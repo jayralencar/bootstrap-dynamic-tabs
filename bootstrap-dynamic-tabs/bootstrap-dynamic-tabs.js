@@ -6,11 +6,9 @@
 		return orig.apply(this, arguments);
 	}
 	var tabs = [];
-	$.fn.TAB = function(options) {
+	$.fn.bootstrapDynamicTabs = function(options) {
 		var settings = $.extend({
-            // These are the defaults.
-            color: "#556b2f",
-            backgroundColor: "white"
+            // These are the defaults.K
         }, options );
 
 		if(this.find('.nav-tabs').length==0){
@@ -35,7 +33,7 @@
 		var settings = $.extend({
             // These are the defaults.
             title: "Titulo Padrão",
-
+            closable: true
 
         }, options );
 
@@ -78,11 +76,32 @@
 				'data-toggle': 'tab'
 			});
 
-			if(settings.icon){
-				ancora.append($('<i/>').addClass('fa').addClass(settings.icon)).append(' ')
+			if(settings.closable){
+				ancora.mousedown(function(e) {
+					e.stopPropagation();
+					if(e.which == 2){
+						a = $(this);
+						href = a.attr('href');
+						a.parent().remove(); 
+						var ativo = $(href).hasClass('active');
+						$(href).remove();
+						var idx = href.substring(1)
+						tabs.splice(tabs.indexOf(idx),1);
+						if(ativo){
+							$('.nav-tabs li:eq(0) a').tab('show');	
+						}
+						return false;
+					}
+				})
 			}
 
-			ancora.append(btn_close).append(settings.title)
+			if(settings.icon){
+				ancora.append($('<i/>').addClass(settings.icon)).append(' ')
+			}
+			if(settings.closable){
+				ancora.append(btn_close)
+			}
+			ancora.append(settings.title)
 
 
 			//Carregando scripts
@@ -169,10 +188,10 @@
 				pagina.html(settings.html)
 			}
 
-			if(settings.ajaxFile){
+			if(settings.ajaxUrl){
 				$.ajax({
 		            mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
-		            url: settings.ajaxFile,
+		            url: settings.ajaxUrl,
 		            type: 'GET',
 		            success: function(data) {
 		            	pagina.html(data)
