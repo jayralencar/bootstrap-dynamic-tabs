@@ -89,6 +89,21 @@ As opções das abas são usadas para definir atributos como título, corpo, etc
 </table>
 <h1>Sortable</h1>
 Além de tudo, você ainda pode mudar a posição das abas ao arrastar, por isso usamos jQuery UI.
+
+<h1>Métodos</h1>
+Além do addTab, bootstrap-dynamic-tabs possuí o método <code>closeById(tabid)</code>, que como o nome sugere serve para remover uma aba pelo id dela. Usando:
+<pre>
+  <code>
+  var tabs = $('#tabs').bootstrapDynamicTabs();
+  tabs.addTab({
+    text: "Close by id",
+    id: "test"
+  });
+  
+  tabs.closeById('teste');
+  </code>
+</pre>
+
 <h1>Quer mais</h1>
 Visite:
 <a href="//jayralencar.com.br">Meu site</a>
