@@ -1,5 +1,5 @@
 <h3 class="test">Carregado via ajax</h3>
-<button class="btn btn-warning" id="closeThis">Fechar esta</button>
+<button class="btn btn-warning" id="closeThis1">Fechar esta</button>
 <pre>
 	<code>
 		tabs.addTab({
@@ -10,7 +10,9 @@
 	</code>
 </pre>
 <script type="text/javascript" id="a">
-$('#closeThis').click(function(event) {
-	$('#tabs').bootstrapDynamicTabs().closeThis();
+$('#closeThis1').click(function(event) {
+	$('#tabs').bootstrapDynamicTabs().closeById('ajax1');
 });
+
+
 </script>

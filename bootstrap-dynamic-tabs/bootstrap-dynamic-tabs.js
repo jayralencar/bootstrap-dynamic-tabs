@@ -5,12 +5,7 @@
  * Licensed under the The MIT License (MIT) (https://github.com/JayrAlencar/bootstrap-dynamic-tabs/blob/master/LICENSE)
  */
  (function ( $ ) {
- 	var ev = new $.Event('remove'),
- 	orig = $.fn.remove;
- 	$.fn.remove = function() {
- 		$(this).trigger(ev);
- 		return orig.apply(this, arguments);
- 	}
+ 	
  	var tabs = [];
  	$.fn.bootstrapDynamicTabs = function(options) {
  		var settings = $.extend({
@@ -186,8 +181,6 @@
 
 			var pagina = this.find('.tab-content').find('#'+settings.id);
 
-			// pagina.append($('<script>').text('alert("23")'))
-
 			if(settings.text){
 				pagina.text(settings.text)
 			}
@@ -214,15 +207,26 @@
 
 
 
-
 		}
 		return this;
 
 	}
 
 	$.fn.closeById = function(id){
-		
 		a = this.find('.nav-tabs').find('a[href="#'+id+'"]');
+		href = a.attr('href');
+		a.parent().remove(); 
+		var ativo = $(href).hasClass('active');
+		$(href).remove();
+		var idx = href.substring(1)
+		tabs.splice(tabs.indexOf(idx),1);
+		if(ativo){
+			$('.nav-tabs li:eq(0) a').tab('show');	
+		}
+	}
+
+	$.fn.closeThis = function(){
+		a = this.find('.nav-tabs').find('.active').find('a');
 		href = a.attr('href');
 		a.parent().remove(); 
 		var ativo = $(href).hasClass('active');

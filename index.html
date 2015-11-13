@@ -31,6 +31,13 @@ var tabs = $('#tabs').bootstrapDynamicTabs().addTab({
 	text:'Plugin jQuery para manipular tabs do bootstrap de forma dinâmica, excelente para aplicações multitelas na WEB ou em runtimes como node-webkit ou electron.',
 	closable: false
 });
+tabs.addTab({
+		title: 'Carregando via Ajax',
+		id: 'ajax1',
+		ajaxUrl: 'ajax/file2.html',
+		loadScripts: 'js/load.js',
+		loadStyles: ['css/test.css','css/test2.css']
+	});
 
 $('#btnHtml').click(function(){
 	tabs.addTab({
